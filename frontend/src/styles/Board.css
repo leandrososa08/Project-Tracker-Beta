@@ -1,0 +1,158 @@
+/* src/styles/Board.css */
+/* Estilos para el tablero completo */
+.board-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .board-main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos para el encabezado del tablero */
+  .board-header {
+    display: flex;
+    background-color: #f7f8f9;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e4e7;
+    padding: 12px 20px;
+    color: #6a737d;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Estilos para las filas de proyectos */
+  .board-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e4e7;
+    padding: 12px 20px;
+  }
+  
+  .board-row:hover {
+    background-color: #f5f6f8;
+  }
+  
+  .board-row:last-child {
+    border-bottom: none;
+  }
+  
+  /* Estilos para las celdas (columnas) */
+  .column-cell {
+    flex: 1;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .column-cell.header-cell {
+    color: #6a737d;
+  }
+  
+  .column-cell:nth-child(1) {
+    flex: 2; /* Asigna más espacio al título */
+  }
+  
+  .column-cell:nth-child(2) {
+    flex: 3; /* Asigna más espacio a la descripción */
+  }
+  
+  .column-cell.actions {
+    flex: 1;
+    text-align: right;
+    min-width: 150px;
+  }
+  
+  /* Estilos para los botones */
+  .board-row button {
+    padding: 6px 12px;
+    margin-left: 8px;
+    border: 1px solid #d4d9de;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .board-row button:hover {
+    background-color: #e6e9ed;
+  }
+  
+  .board-row button:first-of-type {
+    background-color: #5799f7;
+    color: #fff;
+    border-color: #5799f7;
+  }
+  
+  .board-row button:first-of-type:hover {
+    background-color: #4489e2;
+  }
+  
+  /* Estilos para el formulario (ajustar si es necesario) */
+  form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+  
+  form input, form textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #d4d9de;
+    border-radius: 4px;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Estilos para proyectos atrasados (overdue) */
+.board-row.overdue {
+    background-color: #ffe6e6; /* Color de fondo rojo claro */
+    border-left: 5px solid #ff4d4d; /* Borde rojo */
+  }
+  
+  .board-row.overdue .overdue-message {
+    color: #ff4d4d;
+    font-weight: bold;
+  }
+  
+  /* Estilos para proyectos pausados */
+  .board-row.paused {
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    color: #a0a0a0;
+    border-left: 5px solid #a0a0a0;
+  }
+  
+  .board-row.paused .paused-message {
+    font-style: italic;
+    color: #a0a0a0;
+  }
+  
+  /* Opcional: Aumentar el tamaño de las celdas para los nuevos campos */
+  .column-cell {
+    flex: 1;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  .column-cell:nth-child(1) { flex: 2; } /* Título */
+  .column-cell:nth-child(2) { flex: 3; } /* Descripción */
+  .column-cell:nth-child(3) { flex: 1.5; } /* Tipo de proyecto */
+  .column-cell:nth-child(4) { flex: 1.5; } /* Fecha de inicio */
+  .column-cell:nth-child(5) { flex: 1.5; } /* Fecha de fin */
+  .column-cell:nth-child(6) { flex: 2; } /* Estado y mensaje */
+  .column-cell:nth-child(7) { flex: 2; } /* Acciones */
