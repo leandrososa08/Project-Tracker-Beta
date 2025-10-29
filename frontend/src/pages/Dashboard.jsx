@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import API from '../services/api';
+import API from '../api';
 import TasksByStateChart from '../components/TasksByStateChart';
 import ProjectsStatusPie from '../components/ProjectsStatusPie';
 

@@ -1,57 +1,59 @@
 import React, { useState } from 'react';
-import API from '../services/api';
+import { useNavigate } from 'react-router-dom';
+import API from '../api';
+import '../styles/Login.css'; // 👈 agregaremos este archivo de estilos
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [userData, setUserData] = useState(null);
   const [error, setError] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post('auth/login/', { username, password });
-      setUserData(res.data);
-      setError('');
-      alert('✅ Login correcto');
+      await API.post('auth/login/', { username, password });
+      window.location.href = '/'; // Redirige al inicio si todo va bien
     } catch (err) {
-      setError('❌ Credenciales inválidas o CSRF bloqueado');
+      setError('Usuario o contraseña incorrectos');
     }
   };
 
   return (
-    <div style={{ padding: 40, maxWidth: 400, margin: 'auto' }}>
-      <h2>🔐 Iniciar sesión</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          style={{ display: 'block', width: '100%', marginBottom: 10 }}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ display: 'block', width: '100%', marginBottom: 10 }}
-        />
-        <button type="submit" style={{ width: '100%' }}>Entrar</button>
-      </form>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Inicia sesión en Project Tracker</h2>
+        {error && <div className="error">{error}</div>}
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Usuario</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Tu nombre de usuario"
+              required
+            />
+          </div>
 
-      {userData && (
-        <pre style={{
-          background: '#f5f5f5',
-          padding: '10px',
-          marginTop: '10px',
-          borderRadius: '5px',
-        }}>
-          {JSON.stringify(userData, null, 2)}
-        </pre>
-      )}
+          <div className="input-group">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Tu contraseña"
+              required
+            />
+          </div>
+
+          <button type="submit" className="login-btn">Iniciar sesión</button>
+        </form>
+
+        <p className="footer-text">
+          ¿Olvidaste tu contraseña? <a href="#">Recupérala</a>
+        </p>
+      </div>
     </div>
   );
 }

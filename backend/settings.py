@@ -133,18 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
 CORS_ALLOW_CREDENTIALS = True
-CORS_EXPOSE_HEADERS = ['Content-Type", "X-CSRFToken']
-
-# 🔹 Permitir cookies entre dominios
-SESSION_COOKIE_SAMESITE = 'None'
-CSRF_COOKIE_SAMESITE = 'None'
-
-# 🔹 En desarrollo no usamos HTTPS, por eso Secure=False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-
-# 🔹 Fuerza a Django a usar cookies accesibles desde frontend
-CSRF_COOKIE_HTTPONLY = False
-SESSION_COOKIE_HTTPONLY = False
+CORS_EXPOSE_HEADERS = ["Content-Type", "X-CSRFToken"]

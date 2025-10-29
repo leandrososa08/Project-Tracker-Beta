@@ -71,6 +71,28 @@ function App() {
           <Link to="/">Proyectos</Link>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/login">Login</Link>
+          <button
+            onClick={async () => {
+              try {
+                await fetch('http://localhost:8000/api/auth/logout/', {
+                  method: 'POST',
+                  credentials: 'include',
+                  headers: { 'X-CSRFToken': document.cookie.split('csrftoken=')[1]?.split(';')[0] },
+                });
+                alert('Sesión cerrada.');
+              } catch {
+                alert('No se pudo cerrar sesión.');
+              }
+            }}
+            style={{
+              border: 'none',
+              background: 'transparent',
+              color: '#e74c3c',
+              cursor: 'pointer',
+            }}
+          >
+            Logout
+          </button>
         </nav>
 
         {/* 🔹 Rutas principales */}

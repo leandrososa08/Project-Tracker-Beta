@@ -1,0 +1,102 @@
+/* Fondo gris claro con el formulario centrado */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #d8e7f7;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Caja blanca central */
+.login-box {
+  background-color: #ffffff;
+  border: 1px solid #0b0b0c;
+  border-radius: 6px;
+  padding: 32px;
+  width: 340px;
+  box-shadow: 0 4px 12px rgba(27, 31, 35, 0.1);
+  text-align: center;
+}
+
+/* Título principal */
+.login-box h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #24292f;
+}
+
+/* Errores */
+.error {
+  background-color: #ffebe9;
+  border: 1px solid #ff8182;
+  color: #86181d;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Campos de entrada */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #24292f;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #0969da;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.2);
+}
+
+/* Botón principal */
+.login-btn {
+  width: 100%;
+  background-color: #2da44e;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #2c974b;
+}
+
+/* Texto inferior */
+.footer-text {
+  font-size: 13px;
+  color: #57606a;
+  margin-top: 16px;
+}
+
+.footer-text a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
